@@ -16,4 +16,5 @@ This repository contains Mathematica code I developed as part of my research rep
    x^5 + 10bx^3 + 45b^2x + b^2
    $$
 
-   by using the symmetries of the icosahedron. This method provides a geometric approach to finding the roots of quintic equations and serves as a computational implementation of Klein’s approach.
+   by using the symmetries of the icosahedron. This method provides a geometric approach to finding the roots of quintic equations and serves as a computational implementation of Klein’s approach, and in particular follows the algorithm listed at the end of Bartlett's article (Bartlett, B. (2024). *The Quintic, the Icosahedron, and Elliptic Curves*. *Notices of the American Mathematical Society*, 71, 1. https://doi.org/10.1090/noti2923)
+
