@@ -1,0 +1,287 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11226,        277]
+NotebookOptionsPosition[     10745,        260]
+NotebookOutlinePosition[     11143,        276]
+CellTagsIndexPosition[     11100,        273]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Monodromy", "Subsection",
+ CellChangeTimes->{{3.9424886533262*^9, 
+  3.9424886550145493`*^9}},ExpressionUUID->"ac146ecf-58c8-47f9-b4cf-\
+efdf76cf4723"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"setOfPoints", " ", ":=", " ", 
+   RowBox[{"t", " ", "/.", " ", 
+    RowBox[{"Solve", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Discriminant", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"x", "^", "5"}], " ", "-", " ", 
+          RowBox[{"10", "*", "x"}], " ", "+", " ", "t"}], ",", " ", "x"}], 
+        "]"}], " ", "==", " ", "0"}], ",", " ", "t"}], "]"}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"realCoordinates", " ", ":=", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Re", "[", "#", "]"}], ",", " ", 
+        RowBox[{"Im", "[", "#", "]"}]}], "}"}], " ", "&"}], " ", "/@", " ", 
+     "setOfPoints"}]}], ";"}], "\n", 
+  RowBox[{"(*", "realCoordinates", "*)"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{"DynamicModule", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"t", " ", "=", " ", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", " ", "1"}], "}"}]}], ",", " ", "highlightPoints"}], 
+     "}"}], ",", "\n", " ", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+     "Define", " ", "the", " ", "points", " ", "to", " ", "highlight", " ", 
+      "and", " ", "correspond", " ", "to", " ", "multiple", " ", "root", " ", 
+      "points"}], " ", "*)"}], "\n", " ", 
+    RowBox[{
+     RowBox[{"highlightPoints", " ", "=", " ", "realCoordinates"}], ";", "\n",
+      " ", "\n", " ", 
+     RowBox[{"Row", "[", 
+      RowBox[{"{", "\n", "   ", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+        "Plot", " ", "with", " ", "a", " ", "Locator", " ", "to", " ", "move",
+          " ", "t", " ", "and", " ", "highlighted", " ", "points"}], " ", 
+        "*)"}], "\n", "   ", 
+       RowBox[{
+        RowBox[{"Graphics", "[", "\n", "    ", 
+         RowBox[{
+          RowBox[{"{", "\n", "     ", 
+           RowBox[{
+            RowBox[{"Locator", "[", 
+             RowBox[{"Dynamic", "[", "t", "]"}], "]"}], ",", "  ", 
+            RowBox[{"(*", " ", 
+             RowBox[{
+             "This", " ", "is", " ", "the", " ", "movable", " ", "point", " ",
+               "for", " ", "t"}], " ", "*)"}], "\n", "     ", "Black", ",", 
+            " ", 
+            RowBox[{"PointSize", "[", "Large", "]"}], ",", "  ", 
+            RowBox[{"(*", " ", 
+             RowBox[{
+             "Style", " ", "for", " ", "the", " ", "point", " ", 
+              "representing", " ", "t"}], " ", "*)"}], "\n", "     ", 
+            RowBox[{"Point", "[", 
+             RowBox[{"Dynamic", "[", "t", "]"}], "]"}], ",", "  ", 
+            RowBox[{"(*", " ", 
+             RowBox[{
+             "Display", " ", "the", " ", "current", " ", "position", " ", 
+              "of", " ", "t"}], " ", "*)"}], "\n", "     ", 
+            RowBox[{"Dynamic", "[", 
+             RowBox[{"Text", "[", 
+              RowBox[{
+               RowBox[{"Style", "[", 
+                RowBox[{"\"\<t\>\"", ",", " ", "Large", ",", " ", "Black"}], 
+                "]"}], ",", " ", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"t", "[", 
+                   RowBox[{"[", "1", "]"}], "]"}], " ", "+", " ", "0.1"}], 
+                 ",", " ", 
+                 RowBox[{
+                  RowBox[{"t", "[", 
+                   RowBox[{"[", "2", "]"}], "]"}], " ", "+", " ", "0.1"}]}], 
+                "}"}]}], "]"}], "]"}], ",", "\n", "     ", "\n", "     ", 
+            "\n", "     ", "Red", ",", " ", 
+            RowBox[{"PointSize", "[", "Large", "]"}], ",", "  ", 
+            RowBox[{"(*", " ", 
+             RowBox[{
+             "Style", " ", "for", " ", "the", " ", "multiple", " ", "root", 
+              " ", "points"}], " ", "*)"}], "\n", "     ", 
+            RowBox[{"Point", "[", "highlightPoints", "]"}], ",", "  ", 
+            RowBox[{"(*", " ", 
+             RowBox[{
+             "Display", " ", "the", " ", "multiple", " ", "root", " ", 
+              "points"}], " ", "*)"}], "\n", "     ", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Text", "[", 
+               RowBox[{
+                RowBox[{"Style", "[", 
+                 RowBox[{
+                 "\"\<Multiple Roots\>\"", ",", " ", "Medium", ",", " ", 
+                  "Red"}], "]"}], ",", " ", 
+                RowBox[{"#", " ", "+", " ", 
+                 RowBox[{"{", 
+                  RowBox[{"0.1", ",", " ", "0.1"}], "}"}]}]}], "]"}], " ", 
+              "&"}], " ", "/@", " ", "highlightPoints"}]}], "\n", "    ", 
+           "}"}], ",", "\n", "    ", 
+          RowBox[{"Axes", " ", "->", " ", "True"}], ",", "\n", "    ", 
+          RowBox[{"AxesLabel", " ", "->", " ", 
+           RowBox[{"{", 
+            RowBox[{"\"\<Re[t]\>\"", ",", " ", "\"\<Im[t]\>\""}], "}"}]}], 
+          ",", "\n", "    ", 
+          RowBox[{"PlotRange", " ", "->", " ", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "10"}], ",", " ", "10"}], "}"}], ",", " ", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "10"}], ",", " ", "10"}], "}"}]}], "}"}]}]}], 
+         "\n", "   ", "]"}], ",", "\n", "   ", "\n", "   ", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+         "Plot", " ", "to", " ", "display", " ", "the", " ", "roots", " ", 
+          "based", " ", "on", " ", "current", " ", "t"}], " ", "*)"}], "\n", 
+        "   ", 
+        RowBox[{"Dynamic", "[", "\n", "    ", 
+         RowBox[{"Module", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+            "ReT", ",", " ", "ImT", ",", " ", "complexT", ",", " ", "roots"}],
+             "}"}], ",", "\n", "     ", 
+           RowBox[{
+            RowBox[{"ReT", " ", "=", " ", 
+             RowBox[{"t", "[", 
+              RowBox[{"[", "1", "]"}], "]"}]}], ";", "\n", "     ", 
+            RowBox[{"ImT", " ", "=", " ", 
+             RowBox[{"t", "[", 
+              RowBox[{"[", "2", "]"}], "]"}]}], ";", "\n", "     ", 
+            RowBox[{"complexT", " ", "=", " ", 
+             RowBox[{"ReT", " ", "+", " ", 
+              RowBox[{"ImT", " ", "I"}]}]}], ";", "  ", 
+            RowBox[{"(*", " ", 
+             RowBox[{
+             "Combine", " ", "into", " ", "a", " ", "complex", " ", 
+              "number"}], " ", "*)"}], "\n", "     ", "\n", "     ", 
+            RowBox[{"(*", " ", 
+             RowBox[{
+             "Calculate", " ", "roots", " ", "based", " ", "on", " ", "t"}], 
+             " ", "*)"}], "\n", "     ", 
+            RowBox[{"roots", " ", "=", " ", 
+             RowBox[{"x", " ", "/.", " ", 
+              RowBox[{"NSolve", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"x", "^", "5"}], " ", "-", " ", 
+                  RowBox[{"10", "*", "x"}], " ", "+", " ", "complexT"}], " ", 
+                 "==", " ", "0"}], ",", " ", "x"}], "]"}]}]}], ";", "\n", 
+            "     ", "\n", "     ", 
+            RowBox[{"(*", " ", 
+             RowBox[{
+             "Plot", " ", "the", " ", "roots", " ", "on", " ", "the", " ", 
+              "complex", " ", "plane"}], "*)"}], "\n", "     ", 
+            RowBox[{"Graphics", "[", "\n", "      ", 
+             RowBox[{
+              RowBox[{"{", "\n", "       ", 
+               RowBox[{"Blue", ",", " ", 
+                RowBox[{"PointSize", "[", "Large", "]"}], ",", "  ", "\n", 
+                "       ", 
+                RowBox[{"Table", "[", "\n", "        ", 
+                 RowBox[{
+                  RowBox[{"Point", "[", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Re", "[", 
+                    RowBox[{"roots", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", " ", 
+                    RowBox[{"Im", "[", 
+                    RowBox[{"roots", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], "]"}]}], "}"}], "]"}], 
+                  ",", "\n", "        ", 
+                  RowBox[{"{", 
+                   RowBox[{"i", ",", " ", "1", ",", " ", 
+                    RowBox[{"Length", "[", "roots", "]"}]}], "}"}]}], "\n", 
+                 "       ", "]"}]}], "\n", "      ", "}"}], ",", "\n", 
+              "      ", 
+              RowBox[{"PlotRange", " ", "->", " ", "All"}], ",", "\n", 
+              "      ", 
+              RowBox[{"Axes", " ", "->", " ", "True"}], ",", "\n", "      ", 
+              RowBox[{"AxesLabel", " ", "->", " ", 
+               RowBox[{"{", 
+                RowBox[{"\"\<Re[x]\>\"", ",", " ", "\"\<Im[x]\>\""}], "}"}]}],
+               ",", "\n", "      ", 
+              RowBox[{"Epilog", " ", "->", " ", 
+               RowBox[{"{", 
+                RowBox[{"Text", "[", 
+                 RowBox[{
+                  RowBox[{"Style", "[", 
+                   RowBox[{
+                    RowBox[{"\"\<t = \>\"", " ", "<>", " ", 
+                    RowBox[{"ToString", "[", 
+                    RowBox[{"N", "[", "complexT", "]"}], "]"}]}], ",", " ", 
+                    "Large"}], "]"}], ",", " ", 
+                  RowBox[{"Scaled", "[", 
+                   RowBox[{"{", 
+                    RowBox[{"0.7", ",", " ", "0.9"}], "}"}], "]"}]}], "]"}], 
+                "}"}]}]}], "\n", "     ", "]"}]}]}], "\n", "    ", "]"}], 
+         "\n", "   ", "]"}]}], "\n", " ", "}"}], "]"}]}]}], "\n", "]"}], "\n",
+   "\n", "\n", "\n", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "This", " ", "can", " ", "of", " ", "course", " ", "be", " ", 
+     "generalized", " ", "to", " ", "any", " ", "family", " ", "of", " ", 
+     "polynomials", " ", "whose", " ", "coefficients", " ", "depend", " ", 
+     "on", " ", "t"}], ",", " ", 
+    RowBox[{
+    "simply", " ", "make", " ", "sure", " ", "to", " ", "modify", " ", "the", 
+     " ", "polynomial", " ", "in", " ", "setOfPoints", " ", "and", " ", 
+     "when", " ", "calculating", " ", "the", " ", "roots"}]}], 
+   "*)"}]}], "\n"}], "Code",
+ CellChangeTimes->{{3.942488640952116*^9, 
+  3.942488722306156*^9}},ExpressionUUID->"6f8c7adb-a592-4dc5-9b75-\
+a7a85e286c5f"]
+}, Open  ]]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{44, Automatic}, {1, Automatic}},
+FrontEndVersion->"14.0 for Mac OS X ARM (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"699975e0-e3a3-44d9-8e46-e1275f81b7a5"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 157, 3, 54, "Subsection",ExpressionUUID->"ac146ecf-58c8-47f9-b4cf-efdf76cf4723"],
+Cell[740, 27, 9989, 230, 1174, "Code",ExpressionUUID->"6f8c7adb-a592-4dc5-9b75-a7a85e286c5f"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
