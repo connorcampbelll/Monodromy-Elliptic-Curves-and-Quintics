@@ -2,7 +2,7 @@
 
 # Mathematica Code for Visualizing Monodromy Groups and Solving Quintics Using the Icosahedron
 
-This repository contains Mathematica code I developed as part of my research report on Felix Klein's lectures on the icosahedron, with a focus on Bruce Bartlett's recent article published in the *American Mathematical Society*. The code was created during my reading course this semester and is not an expert-level implementation but reflects my exploration and understanding of these mathematical topics.
+This repository contains Mathematica code I developed as part of my research report at McGill University on Felix Klein's lectures on the icosahedron, with a focus on Bruce Bartlett's recent article published in the *American Mathematical Society*. The code was created during my reading course this semester and is not an expert-level implementation but reflects my exploration and understanding of these mathematical topics.
 
 ## Features
 
